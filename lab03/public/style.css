@@ -1,0 +1,14 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #f6f7fa; color: #182133; font: 16px/1.4 system-ui, sans-serif; }
+main { max-width: 1100px; margin: auto; padding: 20px; }
+h1 { font-size: 1.6rem; }
+form, .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 12px 0; }
+button, select, input { font: inherit; }
+button, select, input[type=number] { padding: 5px 8px; border: 1px solid #9aa9bf; border-radius: 4px; background: white; }
+input[type=number] { width: 78px; }
+input[type=range] { vertical-align: middle; }
+button:not(:disabled) { cursor: pointer; }
+button:not(:disabled):hover { background: #e8effa; }
+canvas { display: block; width: 100%; height: clamp(300px, 57vh, 560px); border: 1px solid #9aa9bf; background: white; }
+table { border-collapse: collapse; width: min(100%, 570px); margin-top: 12px; background: white; }
+td, th { padding: 7px 10px; border: 1px solid #ccd4e1; text-align: left; }

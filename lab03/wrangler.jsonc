@@ -1,0 +1,6 @@
+{
+  "name": "raster-lab03",
+  "compatibility_date": "2026-11-12",
+  "workers_dev": true,
+  "assets": { "directory": "./public" }
+}

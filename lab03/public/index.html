@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лабораторная 3 — растеризация</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main>
+<h1>Лабораторная 3. Растеризация</h1>
+<form id="input">
+  <label>Алгоритм <select id="method">
+    <option value="stepwise">Пошаговый</option>
+    <option value="dda">ЦДА</option>
+    <option value="line">Брезенхем: отрезок</option>
+    <option value="circle">Брезенхем: окружность</option>
+  </select></label>
+  <label><span id="x-label">x₁</span> <input id="x" type="number" min="-500" max="500" value="0" required></label>
+  <label><span id="y-label">y₁</span> <input id="y" type="number" min="-500" max="500" value="0" required></label>
+  <label id="end-x">x₂ <input id="x2" type="number" min="-500" max="500" value="5" required></label>
+  <label id="end-y">y₂ <input id="y2" type="number" min="-500" max="500" value="2" required></label>
+  <label id="radius-field" hidden>Радиус <input id="radius" type="number" min="0" max="500" value="6" required disabled></label>
+  <button>Построить</button>
+</form>
+<div class="controls">
+  <label>|X| <input id="extent-x" type="number" min="1" max="1000000" value="10" required></label>
+  <label>|Y| <input id="extent-y" type="number" min="1" max="1000000" value="7" required></label>
+  <output id="zoom-value" for="extent-x extent-y"></output>
+  <button id="first">К началу</button>
+  <button id="prev">Назад</button>
+  <button id="next">Следующий шаг</button>
+  <button id="all">Все клетки</button>
+</div>
+<p id="progress" aria-live="polite"></p>
+<canvas id="grid" aria-label="Координатная сетка и клетки растрового примитива"></canvas>
+<p>Целочисленная точка находится в центре клетки. Синий цвет показывает выбранные клетки, оранжевый — последнюю показанную клетку.</p>
+<button id="measure">Измерить время всех алгоритмов</button>
+<p>Замеряется построение списка точек без отрисовки. Для трёх методов используется один отрезок, для окружности — текущий центр и радиус.</p>
+<table>
+<thead><tr><th>Алгоритм</th><th>Клетки</th><th>Среднее, мкс</th></tr></thead>
+<tbody id="times"></tbody>
+</table>
+</main>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
