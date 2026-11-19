@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Лабораторная 4. Отсечение</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main>
+<h1>Лабораторная 4. Отсечение</h1>
+<form id="form">
+  <label>Алгоритм
+    <select id="mode">
+      <option value="segments">Средняя точка · отрезки</option>
+      <option value="polygon">Сазерленд–Ходжман · многоугольник</option>
+    </select>
+  </label>
+  <div id="segments" class="fields">
+    <label for="segment-data">Число отрезков, координаты отрезков, границы окна</label>
+    <textarea id="segment-data" rows="8" spellcheck="false"></textarea>
+    <label for="file">Загрузить TXT</label>
+    <input id="file" type="file" accept=".txt,text/plain">
+  </div>
+  <div id="polygon" class="fields" hidden>
+    <label>Вершины исходного многоугольника (x y на строку)
+      <textarea id="subject" rows="5" spellcheck="false"></textarea>
+    </label>
+    <label>Вершины выпуклого окна (x y на строку)
+      <textarea id="window" rows="5" spellcheck="false"></textarea>
+    </label>
+  </div>
+  <div class="controls">
+    <button type="submit">Выполнить отсечение</button>
+    <button id="example" type="button">Загрузить пример</button>
+    <label>Масштаб <input id="zoom" type="range" min="50" max="240" value="100"> <output id="zoom-value" for="zoom">100%</output></label>
+  </div>
+</form>
+<div class="legend">
+  <span class="window">Окно</span><span class="source">Исходная геометрия</span><span class="result">Видимая часть</span>
+</div>
+<canvas id="canvas" aria-label="Оси координат, отсекающее окно, исходные фигуры и результат"></canvas>
+<p id="status" role="status"></p>
+<pre id="coordinates"></pre>
+</main>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
